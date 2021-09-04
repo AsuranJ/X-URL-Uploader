@@ -31,14 +31,7 @@ from pyrogram.errors import UserNotParticipant
 
 @pyrogram.Client.on_message(pyrogram.filters.regex(pattern=".*http.*"))
 async def echo(bot, update):
-    if update.from_user.id in Config.BANNED_USERS:
-        await bot.delete_messages(
-            chat_id=update.chat.id,
-            message_ids=update.message_id,
-            revoke=True
-        )
-        return
-        intmsg = await update.reply_text("Analyzing Your link...", quote=True) 
+    if update.from_user.id in Config.AUTH_USERS:
         logger.info(update.from_user)
         url = update.text
         youtube_dl_username = None
