@@ -53,7 +53,7 @@ async def echo(bot, update):
             )
             return
         except Exception:
-            await update.reply_text("Something Wrong. Contact @xgorn")
+            await update.reply_text("Something Wrong. Contact © JAsuran Bots")
             return
     logger.info(update.from_user)
     youtube_dl_username = None
